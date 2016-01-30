@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 76ec4493c538f4d4090d63758be46a27
+timeCreated: 1454178867
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: back_L
+    100002: back_R
+    100004: body
+    100006: //RootNode
+    100008: front
+    100010: front_L
+    100012: front_R
+    100014: head
+    100016: Joint_1
+    100018: Joint_1b
+    100020: Joint_2
+    100022: Joint_2_2
+    100024: Joint_3
+    100026: Joint_4
+    100028: Joint_4_2
+    100030: Joint_4_3
+    100032: Joint_5
+    400000: back_L
+    400002: back_R
+    400004: body
+    400006: //RootNode
+    400008: front
+    400010: front_L
+    400012: front_R
+    400014: head
+    400016: Joint_1
+    400018: Joint_1b
+    400020: Joint_2
+    400022: Joint_2_2
+    400024: Joint_3
+    400026: Joint_4
+    400028: Joint_4_2
+    400030: Joint_4_3
+    400032: Joint_5
+    4300000: goat
+    7400000: C4D Animation Take
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: C4D Animation Take
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/back_L
+        weight: 1
+      - path: body/back_L/Joint_1b
+        weight: 1
+      - path: body/back_L/Joint_1b/Joint_2
+        weight: 1
+      - path: body/back_R
+        weight: 1
+      - path: body/back_R/Joint_3
+        weight: 1
+      - path: body/back_R/Joint_3/Joint_4
+        weight: 1
+      - path: body/front
+        weight: 1
+      - path: body/front/front_L
+        weight: 1
+      - path: body/front/front_L/Joint_1
+        weight: 1
+      - path: body/front/front_L/Joint_1/Joint_2_2
+        weight: 1
+      - path: body/front/front_R
+        weight: 1
+      - path: body/front/front_R/Joint_4_2
+        weight: 1
+      - path: body/front/front_R/Joint_4_2/Joint_5
+        weight: 1
+      - path: body/front/head
+        weight: 1
+      - path: body/front/head/Joint_4_3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

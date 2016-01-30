@@ -241,11 +241,11 @@ MonoBehaviour:
   maxforce: {x: 400, y: 700}
   mintime: 0.4
   maxtime: 1.7
-  percentDemon: 0
+  percentDemon: 0.5
   ydeviation: 2.5
   torque: {x: 0, y: 0, z: -10}
   goatprefab: {fileID: 191646, guid: 7a99ba7cdb096de44b3f110e8a4e6230, type: 2}
-  demonprefab: {fileID: 0}
+  demonprefab: {fileID: 123824, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
   goatsoundgood: {fileID: 8274148}
   goatsoundevil: {fileID: 8206240}
 --- !u!1001 &100100000
@@ -293,12 +293,16 @@ Prefab:
       objectReference: {fileID: 8206240}
     - target: {fileID: 0}
       propertyPath: percentDemon
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Volume
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: demonprefab
+      value: 
+      objectReference: {fileID: 123824, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 197326}

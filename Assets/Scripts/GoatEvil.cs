@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Goat : MonoBehaviour
+public class GoatEvil : MonoBehaviour
 {
   public GameObject bloodExit;
   public GameObject bloodExit2;

@@ -321,6 +321,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 585069579}
   m_Mesh: {fileID: 4300002, guid: a2506c5047fc0a944b2ac9bc3f97e30e, type: 3}
+--- !u!1001 &697628629
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 449184, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 123824, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7d31a2535c5753a42b2cf89b16c92bca, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &732982333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1145,10 @@ Prefab:
     - target: {fileID: 11473078, guid: 39171dfe092c84218955c179a685bf45, type: 2}
       propertyPath: torque.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 197326, guid: 39171dfe092c84218955c179a685bf45, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39171dfe092c84218955c179a685bf45, type: 2}
