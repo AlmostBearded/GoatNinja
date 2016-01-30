@@ -195,7 +195,7 @@ GameObject:
   - 114: {fileID: 11499538}
   - 114: {fileID: 11468338}
   m_Layer: 0
-  m_Name: FinalGoat
+  m_Name: Goat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodExit: {fileID: 107278, guid: d7ec26aaaee60534f801fd3f403af401, type: 2}
+  bloodExit2: {fileID: 0}
   bloodEnter: {fileID: 114284, guid: d7ec26aaaee60534f801fd3f403af401, type: 2}
 --- !u!114 &11499538
 MonoBehaviour:
