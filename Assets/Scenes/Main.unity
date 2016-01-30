@@ -396,11 +396,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 1868437764}
   - 33: {fileID: 1868437763}
-  - 65: {fileID: 1868437762}
   - 23: {fileID: 1868437761}
   - 114: {fileID: 1868437765}
   - 114: {fileID: 1868437766}
   - 54: {fileID: 1868437767}
+  - 64: {fileID: 1868437762}
   m_Layer: 0
   m_Name: Goat
   m_TagString: Untagged
@@ -434,8 +434,8 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1868437762
-BoxCollider:
+--- !u!64 &1868437762
+MeshCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -444,8 +444,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Convex: 1
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1868437763
 MeshFilter:
   m_ObjectHideFlags: 0
