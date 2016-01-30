@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -23,7 +23,7 @@ public class BucketMovement : MonoBehaviour {
 		scoreUI = GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>();
 
 	}
-		void Update () {
+		void FixedUpdate () {
 		Vector3 curr = bucket.transform.position;
 
 		if (goRight)
