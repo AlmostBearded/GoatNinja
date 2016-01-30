@@ -4,22 +4,18 @@ using System.Collections.Generic;
 
 public class Cutter : MonoBehaviour
 { 
-  public GameObject planeCutter;
+  //public GameObject planeCutter;
   private MeshFilter meshFilter;
   private Mesh mesh;
   private Plane plane;
 
-  public void Awake()
+  public void Cut(Plane cuttingPlane)
   {
+    plane = cuttingPlane;
+
     // Cache variables.
     this.meshFilter = GetComponent<MeshFilter>();
     this.mesh = meshFilter.mesh;
-  }
-
-  public void Start()
-  {
-    // Create a plane.
-    CreateCuttingPlane();
 
     // Sort triangles by the side of the plane they are on.
     List<int> trianglesPos, trianglesNeg, trianglesCut;
@@ -37,35 +33,30 @@ public class Cutter : MonoBehaviour
 
     // Clone the gameobject and destroy the cutter script to not end in an endless loop for now.
     GameObject otherObj = Instantiate(gameObject) as GameObject;
-    Destroy(otherObj.GetComponent<Cutter>());
+    //Destroy(otherObj.GetComponent<Cutter>());
     MeshFilter otherMeshFilter = otherObj.GetComponent<MeshFilter>();
 
     // Create both meshes.
     meshFilter.mesh = CreateMesh(cutTrianglesPos, cutVerticesPos);
     otherMeshFilter.mesh = CreateMesh(cutTrianglesNeg, cutVerticesNeg);
+
+    // Push both objects apart.
+    Rigidbody rb = GetComponent<Rigidbody>();
+    Rigidbody otherRb = otherObj.GetComponent<Rigidbody>();
+    rb.AddForce(plane.normal * 10);
+    otherRb.AddForce(plane.normal * -10);
   }
 
-  private void CreateCuttingPlane()
+  public Plane CreateCuttingPlane(Vector3 slicePlaneP0, Vector3 slicePlaneP1, Vector3 slicePlaneP2)
   {
-    // Cache plane variables.
-    Transform planeTransform = planeCutter.transform;
-    MeshFilter planeMeshFilter = planeCutter.GetComponent<MeshFilter>();
-    Mesh planeMesh = planeMeshFilter.mesh;
-    Vector3[] planeVertices = planeMesh.vertices;
-    int[] planeTriangles = planeMesh.triangles;
-
-    // Transform plane vertices into world space.
-    Vector3 aPlane = planeTransform.TransformPoint(planeVertices[planeTriangles[0]]),
-      bPlane = planeTransform.TransformPoint(planeVertices[planeTriangles[1]]),
-      cPlane = planeTransform.TransformPoint(planeVertices[planeTriangles[2]]);
-
     // Transform plane vertices into other object space.
-    aPlane = transform.InverseTransformPoint(aPlane);
-    bPlane = transform.InverseTransformPoint(bPlane);
-    cPlane = transform.InverseTransformPoint(cPlane);
+    Vector3 aPlane = transform.InverseTransformPoint(slicePlaneP0);
+    Vector3 bPlane = transform.InverseTransformPoint(slicePlaneP1);
+    Vector3 cPlane = transform.InverseTransformPoint(slicePlaneP2);
 
     // Create a plane.
-    plane = new Plane(aPlane, bPlane, cPlane);
+    Plane cuttingPlane = new Plane(aPlane, bPlane, cPlane);
+    return cuttingPlane;
   }
 
   private void SortTrianglesBySide(out List<int> trianglesPos,

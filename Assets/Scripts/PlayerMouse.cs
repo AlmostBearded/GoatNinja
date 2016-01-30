@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlayerMouse : MonoBehaviour
 {
-
   public GameObject sliceMarkerPrefab;
   private GameObject sliceMarker;
   private Plane playArea;
