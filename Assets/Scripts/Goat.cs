@@ -42,13 +42,10 @@ public class Goat : MonoBehaviour
         Vector3 slicePlaneNormal = Vector3.Cross(mouseToEnter, mouseToCurr);
 
         Plane slicePlane = cutter.CreateCuttingPlane(enterPoint, currPos, ray.origin);
-        //Debug.DrawLine(enterPoint, currPos, Color.white, 2, false);
-        //Debug.DrawLine(enterPoint, ray.origin, Color.white, 2, false);
-        //Debug.DrawLine(currPos, ray.origin, Color.white, 2, false);
 
         cutter.Cut(slicePlane);
 
-        Instantiate(blood, enterPoint, Quaternion.LookRotation(currPos - enterPoint));
+        //Instantiate(blood, enterPoint, Quaternion.LookRotation(currPos - enterPoint));
       }
     }
   }
