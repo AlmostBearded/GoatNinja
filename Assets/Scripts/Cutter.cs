@@ -47,8 +47,8 @@ public class Cutter : MonoBehaviour
     // Push both objects apart.
     Rigidbody rb = GetComponent<Rigidbody>();
     Rigidbody otherRb = otherObj.GetComponent<Rigidbody>();
-    rb.AddForce(plane.normal * 1, ForceMode.Impulse);
-    otherRb.AddForce(plane.normal * -1, ForceMode.Impulse);
+    rb.AddForce(plane.normal * 5, ForceMode.Impulse);
+    otherRb.AddForce(plane.normal * -5, ForceMode.Impulse);
   }
 
   public Plane CreateCuttingPlane(Vector3 slicePlaneP0, Vector3 slicePlaneP1, Vector3 slicePlaneP2)
