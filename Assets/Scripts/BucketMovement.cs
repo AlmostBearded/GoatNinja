@@ -11,8 +11,6 @@ public class BucketMovement : MonoBehaviour {
 	private float speed;
 
 	private int counter = 0;
-	private int totalScore = 0;
-
 	private Text scoreUI;
 
 	// Use this for initialization
@@ -22,11 +20,10 @@ public class BucketMovement : MonoBehaviour {
 		rightpoint = new Vector3 (10, 0, 0); 
 		goRight = true;
 		speed = 0.1f;
-		//scoreUI = GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>();
+		scoreUI = GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>();
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
+		void Update () {
 		Vector3 curr = bucket.transform.position;
 
 		if (goRight)
@@ -40,21 +37,13 @@ public class BucketMovement : MonoBehaviour {
 		if (curr.x < leftpoint.x)
 			goRight = true;
 
-		// TODO: replace with click
-		if (Input.GetKeyDown ("space")) {
-			Debug.Log ("Bucket emptied");
-			// TODO: play animation
-			totalScore += counter;
-			scoreUI.text = "Score: " + totalScore;
-			counter = 0;
-		}
-	}
+        scoreUI.text = "Score: " + counter;
+
+
+    }
 
 	void OnParticleCollision(GameObject other) {
 		counter++;
 		Debug.Log ("Hit" + counter);
-		Renderer rend = bucket.GetComponentInChildren<Renderer> ();
-		//rend.material.GetTexture
-		//rend.material.SetColor("_Color", new Color(counter/255.0f, 0, 0));
 	}
 }

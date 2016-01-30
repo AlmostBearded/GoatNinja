@@ -6,6 +6,7 @@ public class Goat : MonoBehaviour
   public GameObject bloodExit;
   public GameObject bloodExit2;
   public GameObject bloodEnter;
+  public Material bloodMaterial;
   private Vector3 enterPoint;
   private Plane playArea;
   private Cutter cutter;
@@ -31,7 +32,7 @@ public class Goat : MonoBehaviour
       if (skinnedMeshRenderer != null)
       {
         Mesh mesh = new Mesh();
-        Material[] materials = skinnedMeshRenderer.materials;
+        //Material[] materials = skinnedMeshRenderer.materials;
         skinnedMeshRenderer.BakeMesh(mesh);
         Destroy(skinnedMeshRenderer);
         Destroy(GetComponent<Animator>());
@@ -39,7 +40,7 @@ public class Goat : MonoBehaviour
         MeshRenderer renderer = gameObject.AddComponent<MeshRenderer>();
         MeshFilter meshFilter = gameObject.AddComponent<MeshFilter>();
         meshFilter.sharedMesh = mesh;
-        renderer.materials = materials;
+        renderer.material = bloodMaterial;
         transform.localScale = new Vector3(1, 1, 1);
       }
     }
