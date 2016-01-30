@@ -37,7 +37,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -70,7 +70,7 @@ BoxCollider:
   m_GameObject: {fileID: 197326}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -87,7 +87,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minforce: {x: 200, y: 400}
   maxforce: {x: 400, y: 700}
+  mintime: .400000006
+  maxtime: 1.70000005
+  percentDemon: 0
   goatprefab: {fileID: 191646, guid: 7a99ba7cdb096de44b3f110e8a4e6230, type: 2}
+  demonprefab: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
