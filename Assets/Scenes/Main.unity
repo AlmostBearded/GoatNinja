@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc024f26cad68ac4db0a55faba0d0f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliceMarkerPrefab: {fileID: 121228, guid: 61559fb1e23ab594caf785dafb0916ca, type: 2}
+  sliceMarkerPrefab: {fileID: 145608, guid: 288894c19cf502345aacf45d4a906762, type: 2}
 --- !u!4 &967467001
 Transform:
   m_ObjectHideFlags: 0
