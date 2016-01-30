@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class live : MonoBehaviour {
     public uint hp;
@@ -12,9 +13,8 @@ public class live : MonoBehaviour {
         scoreUI.text = "HP left: " + hp;
         if (hp <= 0)
         {
-            GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " YOU LOST !" ;
-            Time.timeScale = 0;
-
+           // GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " YOU LOST !" ;
+			SceneManager.LoadScene ("Menu");
         }
     }
 

@@ -21,7 +21,6 @@ public class BucketMovement : MonoBehaviour {
 		goRight = true;
 		speed = 0.1f;
 		scoreUI = GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>();
-
 	}
 		void FixedUpdate () {
 		Vector3 curr = bucket.transform.position;
@@ -38,6 +37,7 @@ public class BucketMovement : MonoBehaviour {
 			goRight = true;
 
         scoreUI.text = "Score: " + counter;
+		PlayerPrefs.SetInt ("lastscore", counter);
 
 
     }
