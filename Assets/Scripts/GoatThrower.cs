@@ -19,6 +19,8 @@ public class GoatThrower : MonoBehaviour {
 	public AudioSource goatsoundgood;
 	public AudioSource goatsoundevil;
 
+	public Vector3 rotation;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine ("ThrowInterval");
@@ -31,13 +33,15 @@ public class GoatThrower : MonoBehaviour {
 
 		GameObject obj;
 		if (Random.Range(0.0f, 1.0f) < percentDemon) {
-			obj = (GameObject)Instantiate (demonprefab, startpos, demonprefab.transform.rotation);
+			Quaternion quat = goatprefab.transform.rotation * Quaternion.Euler(rotation);
+			obj = (GameObject)Instantiate (demonprefab, startpos, quat);
 			AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 			audioSource.clip = goatsoundevil.clip;
 			audioSource.volume = 0.3f;
 			audioSource.Play();
 		} else {
-			obj= (GameObject)Instantiate (goatprefab, startpos, goatprefab.transform.rotation);
+			Quaternion quat = goatprefab.transform.rotation * Quaternion.Euler(rotation);
+			obj= (GameObject)Instantiate (goatprefab, startpos, quat);
 			AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 			audioSource.clip = goatsoundgood.clip;
 			audioSource.volume = 0.15f;

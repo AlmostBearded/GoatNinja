@@ -928,6 +928,14 @@ Prefab:
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11473078, guid: 39171dfe092c84218955c179a685bf45, type: 2}
+      propertyPath: rotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473078, guid: 39171dfe092c84218955c179a685bf45, type: 2}
+      propertyPath: rotation.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39171dfe092c84218955c179a685bf45, type: 2}
   m_IsPrefabParent: 0
@@ -1099,6 +1107,14 @@ Prefab:
     - target: {fileID: 11473078, guid: 39171dfe092c84218955c179a685bf45, type: 2}
       propertyPath: torque.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473078, guid: 39171dfe092c84218955c179a685bf45, type: 2}
+      propertyPath: rotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473078, guid: 39171dfe092c84218955c179a685bf45, type: 2}
+      propertyPath: rotation.y
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39171dfe092c84218955c179a685bf45, type: 2}
