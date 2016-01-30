@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BucketMovement : MonoBehaviour {
 
@@ -10,6 +11,9 @@ public class BucketMovement : MonoBehaviour {
 	private float speed;
 
 	private int counter = 0;
+	private int totalScore = 0;
+
+	private Text scoreUI;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +22,7 @@ public class BucketMovement : MonoBehaviour {
 		rightpoint = new Vector3 (10, 0, 0); 
 		goRight = true;
 		speed = 0.1f;
+		scoreUI = GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +31,6 @@ public class BucketMovement : MonoBehaviour {
 
 		if (goRight)
 			bucket.transform.position += new Vector3 (speed, 0, 0);
-			//bucket.transform.Translate (speed, 0, 0, Space.World);
 		else
 			bucket.transform.position -= new Vector3 (speed, 0, 0);
 
@@ -36,9 +40,12 @@ public class BucketMovement : MonoBehaviour {
 		if (curr.x < leftpoint.x)
 			goRight = true;
 
+		// TODO: replace with click
 		if (Input.GetKeyDown ("space")) {
 			Debug.Log ("Bucket emptied");
 			// TODO: play animation
+			totalScore += counter;
+			scoreUI.text = "Score: " + totalScore;
 			counter = 0;
 		}
 	}
