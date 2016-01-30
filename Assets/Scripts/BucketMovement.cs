@@ -22,7 +22,7 @@ public class BucketMovement : MonoBehaviour {
 		rightpoint = new Vector3 (10, 0, 0); 
 		goRight = true;
 		speed = 0.1f;
-		scoreUI = GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>();
+		//scoreUI = GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
