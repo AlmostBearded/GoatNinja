@@ -12,7 +12,7 @@ public class live : MonoBehaviour {
         scoreUI.text = "HP left: " + hp;
         if (hp <= 0)
         {
-            GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " YOU LOST 1" ;
+            GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " YOU LOST !" ;
             Time.timeScale = 0;
 
         }
