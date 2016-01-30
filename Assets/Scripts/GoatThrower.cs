@@ -9,6 +9,10 @@ public class GoatThrower : MonoBehaviour {
 	public float maxtime;
 	public float percentDemon;
 
+	public float ydeviation;
+
+	public Vector3 torque;
+
 	public GameObject goatprefab;
 	public GameObject demonprefab;
 
@@ -18,14 +22,19 @@ public class GoatThrower : MonoBehaviour {
 	}
 
 	void ThrowGoat() {
+		float ydev = Random.Range (-ydeviation, ydeviation);
+
+		Vector3 startpos = new Vector3 (transform.position.x, transform.position.y + ydev, transform.position.z);
+
 		GameObject obj;
 		if (Random.Range(0.0f, 1.0f) < percentDemon) {
-			obj = (GameObject)Instantiate (demonprefab, transform.position, Quaternion.identity);
+			obj = (GameObject)Instantiate (demonprefab, startpos, demonprefab.transform.rotation);
 		} else {
-			obj= (GameObject)Instantiate (goatprefab, transform.position, Quaternion.identity); 
+			obj= (GameObject)Instantiate (goatprefab, startpos, goatprefab.transform.rotation); 
 		}
 		Vector3 force = new Vector3(Random.Range(minforce.x, maxforce.x), Random.Range(minforce.y, maxforce.y));
 		obj.GetComponent<Rigidbody> ().AddForce (force);
+		obj.GetComponent<Rigidbody> ().AddTorque (torque);
 	}
 
 	IEnumerator ThrowInterval() {
