@@ -7,16 +7,15 @@ public class Goat : MonoBehaviour
   public GameObject bloodExit2;
   public GameObject bloodEnter;
   public Material bloodMaterial;
+  public AudioSource sliceSound;
   private Vector3 enterPoint;
   private Plane playArea;
   private Cutter cutter;
-  private Rigidbody rb;
 
   public void Awake()
   {
     playArea = new Plane(new Vector3(0, 0, -1), 0);
     cutter = GetComponent<Cutter>();
-    rb = GetComponent<Rigidbody>();
   }
 
   public void OnTriggerEnter(Collider c)
@@ -32,7 +31,6 @@ public class Goat : MonoBehaviour
       if (skinnedMeshRenderer != null)
       {
         Mesh mesh = new Mesh();
-        //Material[] materials = skinnedMeshRenderer.materials;
         skinnedMeshRenderer.BakeMesh(mesh);
         Destroy(skinnedMeshRenderer);
         Destroy(GetComponent<Animator>());
@@ -64,9 +62,10 @@ public class Goat : MonoBehaviour
 
         cutter.Cut(slicePlane);
 
-        Instantiate(bloodExit, enterPoint,  Quaternion.LookRotation(currPos - enterPoint));
-        Instantiate(bloodExit2, enterPoint, Quaternion.LookRotation(currPos - enterPoint));
-        Instantiate(bloodEnter, enterPoint, Quaternion.LookRotation(enterPoint - currPos));
+        Destroy((GameObject) Instantiate(bloodExit, enterPoint,  Quaternion.LookRotation(currPos - enterPoint)), 10);
+        Destroy((GameObject)Instantiate(bloodExit2, enterPoint, Quaternion.LookRotation(currPos - enterPoint)), 10);
+        Destroy((GameObject)Instantiate(bloodEnter, enterPoint, Quaternion.LookRotation(enterPoint - currPos)), 10);
+        sliceSound.Play();
       }
     }
   }
