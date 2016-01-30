@@ -44,6 +44,6 @@ public class BucketMovement : MonoBehaviour {
 
 	void OnParticleCollision(GameObject other) {
 		counter++;
-		Debug.Log ("Hit" + counter);
+		//Debug.Log ("Hit" + counter);
 	}
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GoatEvil : MonoBehaviour
 {
@@ -15,12 +16,15 @@ public class GoatEvil : MonoBehaviour
   {
     get; set;
   }
+  private bool dead;
+  private live hp;
 
   public void Awake()
   {
     playArea = new Plane(new Vector3(0, 0, -1), 0);
     cutter = GetComponent<Cutter>();
     cut = false;
+    hp = GameObject.FindGameObjectWithTag("hp").GetComponent<Text>().GetComponent<live>();
   }
 
   public void OnTriggerEnter(Collider c)
@@ -61,7 +65,12 @@ public class GoatEvil : MonoBehaviour
 
         Plane slicePlane = cutter.CreateCuttingPlane(enterPoint, currPos, ray.origin);
 
-        cutter.Cut(slicePlane);
+        GameObject otherGoat = cutter.Cut(slicePlane);
+        otherGoat.GetComponent<GoatEvil>().cut = true;
+        if(!cut)
+        {
+            hp.decreaseHP();
+        }
         cut = true;
 
         Destroy((GameObject)Instantiate(bloodExit, enterPoint, Quaternion.LookRotation(currPos - enterPoint)), 10);
