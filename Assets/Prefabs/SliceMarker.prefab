@@ -56,7 +56,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 0.2
-  m_StartWidth: 0.1
+  m_StartWidth: 0.2
   m_EndWidth: 0
   m_Colors:
     m_Color[0]:
@@ -105,7 +105,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_StartWidth
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_EndWidth
