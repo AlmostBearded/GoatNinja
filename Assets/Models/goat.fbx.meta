@@ -22,6 +22,7 @@ ModelImporter:
     100028: Joint_4_2
     100030: Joint_4_3
     100032: Joint_5
+    100034: Joint_1b
     400000: back_L
     400002: back_R
     400004: body
@@ -39,8 +40,11 @@ ModelImporter:
     400028: Joint_4_2
     400030: Joint_4_3
     400032: Joint_5
+    400034: Joint_1b
     4300000: goat
+    7400000: Flying
     9500000: //RootNode
+    11100000: //RootNode
     13700000: //RootNode
   materials:
     importMaterials: 1
@@ -60,9 +64,71 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Flying
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/back_L
+        weight: 1
+      - path: body/back_L/Joint_1b
+        weight: 1
+      - path: body/back_L/Joint_1b/Joint_2
+        weight: 1
+      - path: body/back_R
+        weight: 1
+      - path: body/back_R/Joint_3
+        weight: 1
+      - path: body/back_R/Joint_3/Joint_4
+        weight: 1
+      - path: body/front
+        weight: 1
+      - path: body/front/front_L
+        weight: 1
+      - path: body/front/front_L/Joint_1
+        weight: 1
+      - path: body/front/front_L/Joint_1/Joint_2_2
+        weight: 1
+      - path: body/front/front_R
+        weight: 1
+      - path: body/front/front_R/Joint_4_2
+        weight: 1
+      - path: body/front/front_R/Joint_4_2/Joint_5
+        weight: 1
+      - path: body/front/head
+        weight: 1
+      - path: body/front/head/Joint_4_3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -100,7 +166,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
