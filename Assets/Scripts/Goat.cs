@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Goat : MonoBehaviour
 {
-  public GameObject blood;
+  public GameObject bloodExit;
+  public GameObject bloodEnter;
   private Vector3 enterPoint;
   private Plane playArea;
   private Cutter cutter;
@@ -45,7 +46,8 @@ public class Goat : MonoBehaviour
 
         cutter.Cut(slicePlane);
 
-        //Instantiate(blood, enterPoint, Quaternion.LookRotation(currPos - enterPoint));
+        Instantiate(bloodExit, enterPoint, Quaternion.LookRotation(currPos - enterPoint));
+        Instantiate(bloodEnter, enterPoint, Quaternion.LookRotation(enterPoint - currPos));
       }
     }
   }
