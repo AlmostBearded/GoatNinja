@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Cutter : MonoBehaviour
-{ 
+{
   //public GameObject planeCutter;
   private MeshFilter meshFilter;
   private Mesh mesh;
@@ -24,21 +24,21 @@ public class Cutter : MonoBehaviour
     // Cut triangles.
     List<int> cutTrianglesPos, cutTrianglesNeg;
     List<Vector3> cutVerticesPos, cutVerticesNeg;
-    CutTriangles(trianglesCut, out cutTrianglesPos, out cutVerticesPos,
-      out cutTrianglesNeg, out cutVerticesNeg);
+    List<Vector2> cutUVsPos, cutUVsNeg;
+    CutTriangles(trianglesCut, out cutTrianglesPos, out cutVerticesPos, out cutUVsPos,
+      out cutTrianglesNeg, out cutVerticesNeg, out cutUVsNeg);
 
     // Copy triangles.
-    CopyTriangles(trianglesPos, mesh.vertices, cutTrianglesPos, cutVerticesPos);
-    CopyTriangles(trianglesNeg, mesh.vertices, cutTrianglesNeg, cutVerticesNeg);
+    CopyTriangles(trianglesPos, mesh.vertices, mesh.uv, cutTrianglesPos, cutVerticesPos, cutUVsPos);
+    CopyTriangles(trianglesNeg, mesh.vertices, mesh.uv, cutTrianglesNeg, cutVerticesNeg, cutUVsNeg);
 
     // Clone the gameobject and destroy the cutter script to not end in an endless loop for now.
     GameObject otherObj = Instantiate(gameObject) as GameObject;
-    //Destroy(otherObj.GetComponent<Cutter>());
     MeshFilter otherMeshFilter = otherObj.GetComponent<MeshFilter>();
 
     // Create both meshes.
-    meshFilter.mesh = CreateMesh(cutTrianglesPos, cutVerticesPos);
-    otherMeshFilter.mesh = CreateMesh(cutTrianglesNeg, cutVerticesNeg);
+    meshFilter.mesh = CreateMesh(cutTrianglesPos, cutVerticesPos, cutUVsPos);
+    otherMeshFilter.mesh = CreateMesh(cutTrianglesNeg, cutVerticesNeg, cutUVsNeg);
 
     // Update meshcollider.
     GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
@@ -47,8 +47,8 @@ public class Cutter : MonoBehaviour
     // Push both objects apart.
     Rigidbody rb = GetComponent<Rigidbody>();
     Rigidbody otherRb = otherObj.GetComponent<Rigidbody>();
-    rb.AddForce(plane.normal * 10);
-    otherRb.AddForce(plane.normal * -10);
+    rb.AddForce(plane.normal * 1, ForceMode.Impulse);
+    otherRb.AddForce(plane.normal * -1, ForceMode.Impulse);
   }
 
   public Plane CreateCuttingPlane(Vector3 slicePlaneP0, Vector3 slicePlaneP1, Vector3 slicePlaneP2)
@@ -102,17 +102,20 @@ public class Cutter : MonoBehaviour
   }
 
   private void CutTriangles(List<int> triangles, out List<int> trianglesPos,
-    out List<Vector3> verticesPos, out List<int> trianglesNeg,
-    out List<Vector3> verticesNeg)
+    out List<Vector3> verticesPos, out List<Vector2> uvsPos, out List<int> trianglesNeg,
+    out List<Vector3> verticesNeg, out List<Vector2> uvsNeg)
   {
     // Initialize out variables.
     trianglesPos = new List<int>();
     verticesPos = new List<Vector3>();
+    uvsPos = new List<Vector2>();
     trianglesNeg = new List<int>();
     verticesNeg = new List<Vector3>();
+    uvsNeg = new List<Vector2>();
 
-    // Cache mesh vertices.
+    // Cache mesh variables.
     Vector3[] vertices = mesh.vertices;
+    Vector2[] uvs = mesh.uv;
 
     // Cut triangles.
     for (int tIdx = 0; tIdx < triangles.Count; tIdx += 3)
@@ -123,23 +126,35 @@ public class Cutter : MonoBehaviour
       // Cache the triangle vertices.
       Vector3[] tVerts = new[] { vertices[t[0]], vertices[t[1]], vertices[t[2]] };
 
+      // Cache the triangle uvs;
+      Vector2[] tUVs = new[] { uvs[t[0]], uvs[t[1]], uvs[t[2]] };
+
       // Cache the vertex sides regarding the plane.
       bool[] sides = new[] {plane.GetSide(tVerts[0]),
         plane.GetSide(tVerts[1]),
         plane.GetSide(tVerts[2]) };
 
-      // Calculate the vertices.
+      // Calculate the vertices and uvs.
       List<Vector3> currVerticesPos = new List<Vector3>();
       List<Vector3> currVerticesNeg = new List<Vector3>();
+      List<Vector2> currUVsPos = new List<Vector2>();
+      List<Vector2> currUVsNeg = new List<Vector2>();
       for (int i = 0; i < 3; i++)
       {
         int i2 = (i + 1) % 3;
         Vector3 v0 = tVerts[i], v1 = tVerts[i2];
+        Vector2 uv0 = tUVs[i], uv1 = tUVs[i2];
 
         if (sides[i] == true)
+        {
           currVerticesPos.Add(v0);
+          currUVsPos.Add(uv0);
+        }
         else
+        {
           currVerticesNeg.Add(v0);
+          currUVsNeg.Add(uv0);
+        }
 
         if (sides[i] != sides[i2])
         {
@@ -152,6 +167,11 @@ public class Cutter : MonoBehaviour
 
           currVerticesPos.Add(intersection);
           currVerticesNeg.Add(intersection);
+
+          Vector2 uvDir = (uv1 - uv0).normalized;
+          Vector2 uvIntersection = uv0 + uvDir * d;
+          currUVsPos.Add(uvIntersection);
+          currUVsNeg.Add(uvIntersection);
         }
       }
 
@@ -164,6 +184,10 @@ public class Cutter : MonoBehaviour
       // Insert the vertices.
       verticesPos.AddRange(currVerticesPos);
       verticesNeg.AddRange(currVerticesNeg);
+
+      // Insert the uvs.
+      uvsPos.AddRange(currUVsPos);
+      uvsNeg.AddRange(currUVsNeg);
     }
   }
 
@@ -181,8 +205,8 @@ public class Cutter : MonoBehaviour
     return null;
   }
 
-  private void CopyTriangles(IEnumerable<int> trianglesToAdd, 
-    IList<Vector3> verticesToAdd, IList<int> triangles, IList<Vector3> vertices)
+  private void CopyTriangles(IEnumerable<int> trianglesToAdd,
+    IList<Vector3> verticesToAdd, IList<Vector2> uvsToAdd, IList<int> triangles, IList<Vector3> vertices, IList<Vector2> uvs)
   {
     Dictionary<int, int> indexMapping = new Dictionary<int, int>();
     foreach (int idx in trianglesToAdd)
@@ -193,12 +217,13 @@ public class Cutter : MonoBehaviour
         newIdx = vertices.Count;
         indexMapping.Add(idx, newIdx);
         vertices.Add(verticesToAdd[idx]);
+        uvs.Add(uvsToAdd[idx]);
       }
       triangles.Add(newIdx);
     }
   }
 
-  private Mesh CreateMesh(List<int> triangles, List<Vector3> vertices)
+  private Mesh CreateMesh(List<int> triangles, List<Vector3> vertices, List<Vector2> uvs)
   {
     Mesh m = new Mesh();
 
@@ -208,8 +233,12 @@ public class Cutter : MonoBehaviour
     Vector3[] verticesArray = new Vector3[vertices.Count];
     vertices.CopyTo(verticesArray);
 
+    Vector2[] uvsArray = new Vector2[uvs.Count];
+    uvs.CopyTo(uvsArray);
+
     //m.Clear();
     m.vertices = verticesArray;
+    m.uv = uvsArray;
     m.triangles = trianglesArray;
     m.RecalculateBounds();
     m.RecalculateNormals();

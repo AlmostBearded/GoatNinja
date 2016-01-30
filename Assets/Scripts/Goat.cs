@@ -25,6 +25,22 @@ public class Goat : MonoBehaviour
       float playAreaDistance;
       playArea.Raycast(ray, out playAreaDistance);
       enterPoint = ray.GetPoint(playAreaDistance);
+
+      SkinnedMeshRenderer skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+      if (skinnedMeshRenderer != null)
+      {
+        Mesh mesh = new Mesh();
+        Material[] materials = skinnedMeshRenderer.materials;
+        skinnedMeshRenderer.BakeMesh(mesh);
+        Destroy(skinnedMeshRenderer);
+        Destroy(GetComponent<Animator>());
+
+        MeshRenderer renderer = gameObject.AddComponent<MeshRenderer>();
+        MeshFilter meshFilter = gameObject.AddComponent<MeshFilter>();
+        meshFilter.sharedMesh = mesh;
+        renderer.materials = materials;
+        transform.localScale = new Vector3(1, 1, 1);
+      }
     }
   }
 
@@ -50,45 +66,5 @@ public class Goat : MonoBehaviour
         Instantiate(bloodEnter, enterPoint, Quaternion.LookRotation(enterPoint - currPos));
       }
     }
-  }
-
-  public void OnCollisionEnter(Collision c)
-  {
-    //Debug.Log("CollisionEnter");
-    //enterPoint = c.contacts[0].point;
-    //alreadyCut = false;
-    //rb.isKinematic = true;
-  }
-
-  public void OnCollisionExit(Collision c)
-  {
-    //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //float playAreaDistance;
-    //if (!alreadyCut && playArea.Raycast(ray, out playAreaDistance))
-    //{
-    //  Vector3 currPos = ray.GetPoint(playAreaDistance);
-
-    //  Vector3 mouseToEnter = (enterPoint - ray.origin).normalized;
-    //  Vector3 mouseToCurr = (currPos - ray.origin).normalized;
-    //  Vector3 slicePlaneNormal = Vector3.Cross(mouseToEnter, mouseToCurr);
-
-    //  Plane slicePlane = cutter.CreateCuttingPlane(enterPoint, currPos, ray.origin);
-    //  Debug.DrawLine(enterPoint, currPos, Color.white, 2, false);
-    //  Debug.DrawLine(enterPoint, ray.origin, Color.white, 2, false);
-    //  Debug.DrawLine(currPos, ray.origin, Color.white, 2, false);
-    //  //Debug.DrawLine(enterPoint, enterPoint + slicePlane.normal * 3, Color.white, 2, false);
-
-    //  //cutter.Cut(slicePlane);
-    //  alreadyCut = true;
-    //  rb.isKinematic = false;
-    //  rb.AddForce(Vector3.up * 10);
-    //  //rb.isKinematic = true;
-    //  //rb.isKinematic = false;
-    //}
-  }
-
-  public void OnCollisionStay(Collision c)
-  {
-
   }
 }
