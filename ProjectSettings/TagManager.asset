@@ -7,6 +7,10 @@ TagManager:
   - Bucket
   - PlayArea
   - Score
+  - hp
+  - goat
+  - evilgoat
+  - end
   layers:
   - Default
   - TransparentFX

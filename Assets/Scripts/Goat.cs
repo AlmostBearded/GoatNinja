@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Goat : MonoBehaviour
 {
@@ -61,7 +62,8 @@ public class Goat : MonoBehaviour
 
         Plane slicePlane = cutter.CreateCuttingPlane(enterPoint, currPos, ray.origin);
 
-        cutter.Cut(slicePlane);
+        GameObject otherGoat = cutter.Cut(slicePlane);
+        otherGoat.GetComponent<Goat>().cut = true;
         cut = true;
 
         Destroy((GameObject)Instantiate(bloodExit, enterPoint, Quaternion.LookRotation(currPos - enterPoint)), 10);

@@ -9,7 +9,7 @@ public class Cutter : MonoBehaviour
   private Mesh mesh;
   private Plane plane;
 
-  public void Cut(Plane cuttingPlane)
+  public GameObject Cut(Plane cuttingPlane)
   {
     plane = cuttingPlane;
 
@@ -49,6 +49,8 @@ public class Cutter : MonoBehaviour
     Rigidbody otherRb = otherObj.GetComponent<Rigidbody>();
     rb.AddForce(plane.normal * 1, ForceMode.Impulse);
     otherRb.AddForce(plane.normal * -1, ForceMode.Impulse);
+
+    return otherObj;
   }
 
   public Plane CreateCuttingPlane(Vector3 slicePlaneP0, Vector3 slicePlaneP1, Vector3 slicePlaneP2)
