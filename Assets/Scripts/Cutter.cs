@@ -40,6 +40,10 @@ public class Cutter : MonoBehaviour
     meshFilter.mesh = CreateMesh(cutTrianglesPos, cutVerticesPos);
     otherMeshFilter.mesh = CreateMesh(cutTrianglesNeg, cutVerticesNeg);
 
+    // Update meshcollider.
+    GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
+    otherObj.GetComponent<MeshCollider>().sharedMesh = otherMeshFilter.mesh;
+
     // Push both objects apart.
     Rigidbody rb = GetComponent<Rigidbody>();
     Rigidbody otherRb = otherObj.GetComponent<Rigidbody>();
