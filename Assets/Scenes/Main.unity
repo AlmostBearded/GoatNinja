@@ -960,6 +960,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 197326, guid: 39171dfe092c84218955c179a685bf45, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238242, guid: 39171dfe092c84218955c179a685bf45, type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238242, guid: 39171dfe092c84218955c179a685bf45, type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
