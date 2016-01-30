@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df5dbdd96691486283a6f1875920fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 200, y: 0, z: 0}
+  goatprefab: {fileID: 191646, guid: 7a99ba7cdb096de44b3f110e8a4e6230, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
