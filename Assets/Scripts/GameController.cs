@@ -1,22 +1,25 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
 
-	void Start () {
-	}
+  void Start()
+  {
+  }
 
-    void Update()
+  void Update()
+  {
+    if (Input.GetKeyDown("escape"))
     {
-        if (Input.GetKeyDown("escape"))
-        {
-            Application.Quit();
-        }
-
-        if (Input.GetKeyDown("space"))
-        {
-            Application.LoadLevel("Main");
-        }
+      Application.Quit();
     }
+
+    if (Input.GetKeyDown("space"))
+    {
+      SceneManager.LoadScene("Main");
+    }
+  }
 }
