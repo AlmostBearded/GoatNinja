@@ -4,6 +4,7 @@ using System.Collections;
 public class GoatThrower : MonoBehaviour {
 
 	public Vector3 direction;
+	public GameObject goatprefab;
 
 	// Use this for initialization
 	void Start () {
@@ -11,8 +12,7 @@ public class GoatThrower : MonoBehaviour {
 	}
 
 	void ThrowGoat() {
-		GameObject prefab = GameObject.Find ("Goat");
-		GameObject obj = (GameObject)Instantiate (prefab, transform.position, Quaternion.identity);
+		GameObject obj = (GameObject)Instantiate (goatprefab, transform.position, Quaternion.identity);
 		obj.GetComponent<Rigidbody> ().AddForce (direction);
 	}
 
