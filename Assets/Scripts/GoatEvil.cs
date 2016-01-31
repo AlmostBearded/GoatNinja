@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class GoatEvil : MonoBehaviour
 {
+  public GameObject gas;
   public GameObject bloodExit;
   public GameObject bloodExit2;
   public GameObject bloodEnter;
@@ -19,6 +20,7 @@ public class GoatEvil : MonoBehaviour
   }
   private bool dead;
   private live hp;
+  private GameObject gascloud;
 
   public void Awake()
   {
@@ -26,7 +28,15 @@ public class GoatEvil : MonoBehaviour
     cutter = GetComponent<Cutter>();
     cut = false;
     hp = GameObject.FindGameObjectWithTag("hp").GetComponent<Text>().GetComponent<live>();
-  }
+    //gascloud = (GameObject)Instantiate(gas, gameObject.transform.position, gameObject.transform.rotation);
+    //Destroy(gascloud, 10);
+
+    }
+
+    void Update()
+    {
+        //gascloud.transform.position = gameObject.transform.position;
+    }
 
   public void OnTriggerEnter(Collider c)
   {
