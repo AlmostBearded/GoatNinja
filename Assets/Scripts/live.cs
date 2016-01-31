@@ -20,7 +20,9 @@ public class live : MonoBehaviour {
     {
         hp--;
         scoreUI.text = "HP left: " + hp;
-		StartCoroutine ("noob");
+		if (hp > 0) {
+			StartCoroutine ("noob");
+		}
         if (hp <= 0)
         {
             //GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " Game over!" ;
