@@ -8,10 +8,19 @@ public class live : MonoBehaviour {
     private Text scoreUI;
 	public AudioSource gameover;
 
+	 IEnumerator noob() {
+		GameObject texture = GameObject.FindGameObjectWithTag ("Error");
+		texture.GetComponent<Image>().color = new Color (1, 0, 0, 0.5f);
+		yield return new WaitForSeconds(0.07f);
+		//yield return new WaitForEndOfFrame ();
+		texture.GetComponent<Image>().color = new Color (1, 1, 1, 0);
+	}
+
     public void decreaseHP()
     {
         hp--;
         scoreUI.text = "HP left: " + hp;
+		StartCoroutine ("noob");
         if (hp <= 0)
         {
             //GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " Game over!" ;
