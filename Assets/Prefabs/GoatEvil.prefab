@@ -696,9 +696,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3723e9d68427f48a40c382112bf0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodExit: {fileID: 109820, guid: d7ec26aaaee60534f801fd3f403af401, type: 2}
-  bloodExit2: {fileID: 186774, guid: d7ec26aaaee60534f801fd3f403af401, type: 2}
-  bloodEnter: {fileID: 196546, guid: d7ec26aaaee60534f801fd3f403af401, type: 2}
+  bloodExit: {fileID: 130066, guid: 13e3a9b29a1683f44873652f227ec716, type: 2}
+  bloodExit2: {fileID: 197618, guid: 13e3a9b29a1683f44873652f227ec716, type: 2}
+  bloodEnter: {fileID: 198010, guid: 13e3a9b29a1683f44873652f227ec716, type: 2}
   bloodMaterial: {fileID: 2100000, guid: 52808dca4cff60f439251b88a2e61000, type: 2}
   sliceSound: {fileID: 8265704}
   bloodSound: {fileID: 8218616}
@@ -796,6 +796,18 @@ Prefab:
       propertyPath: bloodSound
       value: 
       objectReference: {fileID: 8218616}
+    - target: {fileID: 0}
+      propertyPath: bloodExit
+      value: 
+      objectReference: {fileID: 130066, guid: 13e3a9b29a1683f44873652f227ec716, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bloodEnter
+      value: 
+      objectReference: {fileID: 198010, guid: 13e3a9b29a1683f44873652f227ec716, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bloodExit2
+      value: 
+      objectReference: {fileID: 197618, guid: 13e3a9b29a1683f44873652f227ec716, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123824}
