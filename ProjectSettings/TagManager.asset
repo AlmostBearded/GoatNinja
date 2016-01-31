@@ -12,6 +12,7 @@ TagManager:
   - evilgoat
   - end
   - GoatThrower
+  - Player
   layers:
   - Default
   - TransparentFX

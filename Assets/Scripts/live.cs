@@ -20,6 +20,7 @@ public class live : MonoBehaviour {
 			foreach (GameObject go in throwers) {
 				go.SetActive (false);
 			}
+			GameObject.FindGameObjectWithTag ("Player").SetActive (false);
 			int currentHighscore = PlayerPrefs.GetInt ("highscore", 0);
 			int lastScore = PlayerPrefs.GetInt ("lastscore", 0);
 			if (lastScore > currentHighscore) {
