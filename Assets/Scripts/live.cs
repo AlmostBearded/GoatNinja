@@ -37,6 +37,7 @@ public class live : MonoBehaviour {
 					"Game over!\nYour Score: " + lastScore + 
 					"\nCurrent Highscore: " + currentHighscore + 
 					"\nPress Space to Restart - Press Escape to Quit";
+				GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.white;
 			}
 			//SceneManager.LoadScene ("Menu");
         }
