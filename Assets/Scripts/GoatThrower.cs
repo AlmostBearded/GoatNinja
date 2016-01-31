@@ -44,7 +44,7 @@ public class GoatThrower : MonoBehaviour {
 			obj= (GameObject)Instantiate (goatprefab, startpos, quat);
 			AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 			audioSource.clip = goatsoundgood.clip;
-			audioSource.volume = 0.10f;
+			audioSource.volume = 0.14f;
 			audioSource.Play();
 		}
 		Vector3 force = new Vector3(Random.Range(minforce.x, maxforce.x), Random.Range(minforce.y, maxforce.y));
