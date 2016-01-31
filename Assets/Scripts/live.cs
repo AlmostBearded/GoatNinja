@@ -7,11 +7,41 @@ public class live : MonoBehaviour {
     public uint hp;
     private Text scoreUI;
 	public AudioSource gameover;
+	public AudioSource failSound;
+
+	 IEnumerator noob() {
+		GameObject texture = GameObject.FindGameObjectWithTag ("Error");
+		texture.GetComponent<Image>().color = new Color (1, 0, 0, 0.5f);
+		yield return new WaitForSeconds(0.07f);
+		//yield return new WaitForEndOfFrame ();
+		texture.GetComponent<Image>().color = new Color (1, 1, 1, 0);
+	}
+
+	IEnumerator sshake() {
+		GameObject camera = GameObject.FindGameObjectWithTag ("MainCamera");
+		Vector3 campos = camera.transform.position;
+		float anim = 0.0f;
+		while (anim < 0.3f) {
+			anim += Time.deltaTime;
+			float x = Random.Range (-0.2f, 0.2f);
+			float y = Random.Range (-0.2f, 0.2f);
+			camera.transform.position = new Vector3 (campos.x + x, campos.y + y, campos.z);
+
+			yield return null;
+		}
+
+		camera.transform.position = campos;
+	}
 
     public void decreaseHP()
     {
         hp--;
         scoreUI.text = "HP left: " + hp;
+		if (hp > 0) {
+			StartCoroutine ("noob");
+			StartCoroutine ("sshake");
+			failSound.Play ();
+		}
         if (hp <= 0)
         {
             //GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " Game over!" ;
@@ -30,14 +60,14 @@ public class live : MonoBehaviour {
 				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = 
 					"Game over!\nCongratz New Highscore: " + lastScore + 
 					"\nPress Space to Restart - Press Escape to Quit";
-				GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.red;
+				//GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.red;
 				//Debug.Log ("Congratz new highscore: " + lastScore);
 			} else {
 				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = 
 					"Game over!\nYour Score: " + lastScore + 
 					"\nCurrent Highscore: " + currentHighscore + 
 					"\nPress Space to Restart - Press Escape to Quit";
-				GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.white;
+				//GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.white;
 			}
 			//SceneManager.LoadScene ("Menu");
         }

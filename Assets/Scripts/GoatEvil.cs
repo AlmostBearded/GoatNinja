@@ -9,6 +9,7 @@ public class GoatEvil : MonoBehaviour
   public GameObject bloodEnter;
   public Material bloodMaterial;
   public AudioSource sliceSound;
+  public AudioSource bloodSound;
   private Vector3 enterPoint;
   private Plane playArea;
   private Cutter cutter;
@@ -77,6 +78,7 @@ public class GoatEvil : MonoBehaviour
         Destroy((GameObject)Instantiate(bloodExit2, enterPoint, Quaternion.LookRotation(currPos - enterPoint)), 10);
         Destroy((GameObject)Instantiate(bloodEnter, enterPoint, Quaternion.LookRotation(enterPoint - currPos)), 10);
         sliceSound.Play();
+        bloodSound.Play();
       }
     }
   }
