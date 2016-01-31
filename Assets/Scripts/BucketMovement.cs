@@ -48,7 +48,7 @@ public class BucketMovement : MonoBehaviour
     if (curr.x < leftPoint)
       goRight = true;
 
-    curr += new Vector3(goRight ? speed : -speed, 0, 0);
+    bucket.transform.position += new Vector3(goRight ? speed : -speed, 0, 0);
 
     //if (curr.x > rightpoint.x)
     //  goRight = false;

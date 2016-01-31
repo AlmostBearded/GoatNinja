@@ -47,6 +47,7 @@ GameObject:
   - 64: {fileID: 6472646}
   - 59: {fileID: 5955090}
   - 114: {fileID: 11450846}
+  - 82: {fileID: 8216720}
   m_Layer: 0
   m_Name: bucket
   m_TagString: Untagged
@@ -570,6 +571,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.85, y: 0.24, z: 0.1893522}
   m_Center: {x: -0.0000000149009605, y: 1.2, z: 0.000000029803473}
+--- !u!82 &8216720
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116910}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4a893b26ebae9b14b86705b0a8a0088b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!111 &11125920
 Animation:
   m_ObjectHideFlags: 1
@@ -596,6 +671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75e56bfcfe6d4eceb6c7c725c0bdfde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stomachSound: {fileID: 8216720}
+  goatHitSplash1: {fileID: 196546, guid: d7ec26aaaee60534f801fd3f403af401, type: 2}
+  goatHitSplash2: {fileID: 109820, guid: d7ec26aaaee60534f801fd3f403af401, type: 2}
 --- !u!198 &19868768
 ParticleSystem:
   m_ObjectHideFlags: 1
