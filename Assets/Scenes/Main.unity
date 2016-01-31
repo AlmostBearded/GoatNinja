@@ -841,7 +841,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 25fb1c94f9325434c85bfb1816150af6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0e147ae28d97c564aa7f10a5b56de24a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1202,7 +1202,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485836, guid: 2b4675f26f98dff4f9ae1718c25ed692, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11450846, guid: 2b4675f26f98dff4f9ae1718c25ed692, type: 2}
       propertyPath: stomachSound
@@ -1246,7 +1246,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1953174549}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7dabe92c89eb9294a95a10ab6762c307, type: 3}
