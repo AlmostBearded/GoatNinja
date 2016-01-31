@@ -20,14 +20,6 @@ public class Leaderboard : MonoBehaviour {
 			GetComponent<Text> ().text = "Current Highscore: " + currentHighscore;
 		}
 	}
-
-	void ReportScore(int score) {
-
-		if (score > currentHighscore) {
-			PlayerPrefs.SetInt ("highscore", score);
-			Debug.Log ("Congratz new highscore: " + score);
-		}
-	}
 	
 	// Update is called once per frame
 	void Update () {

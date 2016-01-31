@@ -11,6 +11,7 @@ TagManager:
   - goat
   - evilgoat
   - end
+  - GoatThrower
   layers:
   - Default
   - TransparentFX

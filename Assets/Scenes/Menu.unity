@@ -445,8 +445,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kill good (white) goats and collect their blood in the bucket. But don't
-    harm the demon (black) goats.
+  m_Text: Kill good goats and collect their blood in the bucket. But don't harm the
+    demon goats.
 --- !u!222 &1600615262
 CanvasRenderer:
   m_ObjectHideFlags: 0
