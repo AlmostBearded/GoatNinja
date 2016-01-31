@@ -41,14 +41,14 @@ public class live : MonoBehaviour {
 				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = 
 					"Game over!\nCongratz New Highscore: " + lastScore + 
 					"\nPress Space to Restart - Press Escape to Quit";
-				GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.red;
+				//GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.red;
 				//Debug.Log ("Congratz new highscore: " + lastScore);
 			} else {
 				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = 
 					"Game over!\nYour Score: " + lastScore + 
 					"\nCurrent Highscore: " + currentHighscore + 
 					"\nPress Space to Restart - Press Escape to Quit";
-				GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.white;
+				//GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.white;
 			}
 			//SceneManager.LoadScene ("Menu");
         }
