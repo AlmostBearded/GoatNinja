@@ -158,6 +158,30 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -10}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &201296403 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180226, guid: e77506bc567455843aa786a65b1058a7, type: 2}
+  m_PrefabInternal: {fileID: 1055822900}
+--- !u!23 &201296404 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 2393394, guid: e77506bc567455843aa786a65b1058a7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1055822900}
+--- !u!114 &201296407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 201296403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47144a3b23cc9614b8209e8eaabb8015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials: []
+  changeInterval: 0.33
+  renderer: {fileID: 201296404}
+  highscore: 0
 --- !u!1 &518418570
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +663,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: e96dfab83ddc07843b7655744a58d6e2, type: 2}
+    - target: {fileID: 180226, guid: e77506bc567455843aa786a65b1058a7, type: 2}
+      propertyPath: m_TagString
+      value: glow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e77506bc567455843aa786a65b1058a7, type: 2}
   m_IsPrefabParent: 0
