@@ -36,7 +36,7 @@ public class live : MonoBehaviour {
     public void decreaseHP()
     {
         hp--;
-        scoreUI.text = "HP left: " + hp;
+        scoreUI.text = "HP: " + hp;
 		if (hp > 0) {
 			StartCoroutine ("noob");
 			StartCoroutine ("sshake");
