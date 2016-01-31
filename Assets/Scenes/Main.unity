@@ -549,7 +549,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 746554676}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fceaeb339b971b429c4cc600acabd13, type: 3}
   m_Name: 
@@ -559,8 +559,8 @@ MonoBehaviour:
   hdr: 0
   sepBlurSpread: 2.5
   quality: 1
-  bloomIntensity: 10
-  bloomThreshold: 0.64
+  bloomIntensity: 15
+  bloomThreshold: 0.96
   bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 2
   hollywoodFlareBlurIterations: 2
@@ -792,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  gameover: {fileID: 0}
 --- !u!1 &1461927200
 GameObject:
   m_ObjectHideFlags: 0

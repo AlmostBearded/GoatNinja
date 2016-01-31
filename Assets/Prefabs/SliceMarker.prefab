@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 473904}
   - 96: {fileID: 9641796}
   - 135: {fileID: 13504068}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: SliceMarker
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -126,6 +126,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_MinVertexDistance
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
