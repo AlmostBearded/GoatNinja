@@ -27,10 +27,10 @@ public class live : MonoBehaviour {
 			Debug.Log (lastScore + "last Score");
 			if (lastScore > currentHighscore) {
 				PlayerPrefs.SetInt ("highscore", lastScore);
-				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = "Game over! Congratz New Highscore: " + lastScore;
+				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = "Game over!\nCongratz New Highscore: " + lastScore;
 				//Debug.Log ("Congratz new highscore: " + lastScore);
 			} else {
-				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = "Game over! Your Score: " + lastScore + " Current Highscore: " + currentHighscore;
+				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = "Game over!\nYour Score: " + lastScore + "\nCurrent Highscore: " + currentHighscore;
 			}
 			//SceneManager.LoadScene ("Menu");
         }
