@@ -10,7 +10,9 @@ public class Leaderboard : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentHighscore = PlayerPrefs.GetInt("highscore", 0); 
-		int lastScore = PlayerPrefs.GetInt ("lastscore", 0);
+		//PlayerPrefs.SetInt("highscore", 0); 
+		GetComponent<Text> ().text = "Current Highscore: " + currentHighscore;
+		/*int lastScore = PlayerPrefs.GetInt ("lastscore", 0);
 		if (lastScore > currentHighscore) {
 			PlayerPrefs.SetInt ("highscore", lastScore);
 			GetComponent<Text> ().text = "Congratz New Highscore: " + currentHighscore;
@@ -18,7 +20,7 @@ public class Leaderboard : MonoBehaviour {
 			Debug.Log ("Congratz new highscore: " + lastScore);
 		} else {
 			GetComponent<Text> ().text = "Current Highscore: " + currentHighscore;
-		}
+		}*/
 	}
 	
 	// Update is called once per frame
