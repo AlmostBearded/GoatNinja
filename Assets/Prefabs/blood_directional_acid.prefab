@@ -324,7 +324,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4278255400
+        rgba: 4278251045
       minMaxState: 0
     startSize:
       scalar: 0.1
@@ -1803,7 +1803,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4278255400
+        rgba: 4278251045
       minMaxState: 0
     startSize:
       scalar: 1
@@ -4781,7 +4781,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4278255400
+        rgba: 4278251045
       minMaxState: 0
     startSize:
       scalar: 0.08
@@ -6225,7 +6225,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4278251045
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144458}
