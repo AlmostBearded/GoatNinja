@@ -8,10 +8,21 @@ public class live : MonoBehaviour {
     private Text scoreUI;
 	public AudioSource gameover;
 
+	 IEnumerator noob() {
+		GameObject texture = GameObject.FindGameObjectWithTag ("Error");
+		texture.GetComponent<Image>().color = new Color (1, 0, 0, 0.5f);
+		yield return new WaitForSeconds(0.07f);
+		//yield return new WaitForEndOfFrame ();
+		texture.GetComponent<Image>().color = new Color (1, 1, 1, 0);
+	}
+
     public void decreaseHP()
     {
         hp--;
         scoreUI.text = "HP left: " + hp;
+		if (hp > 0) {
+			StartCoroutine ("noob");
+		}
         if (hp <= 0)
         {
             //GameObject.FindGameObjectWithTag("end").GetComponent<Text>().text = " Game over!" ;
@@ -30,14 +41,14 @@ public class live : MonoBehaviour {
 				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = 
 					"Game over!\nCongratz New Highscore: " + lastScore + 
 					"\nPress Space to Restart - Press Escape to Quit";
-				GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.red;
+				//GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.red;
 				//Debug.Log ("Congratz new highscore: " + lastScore);
 			} else {
 				GameObject.FindGameObjectWithTag("end").GetComponent<Text> ().text = 
 					"Game over!\nYour Score: " + lastScore + 
 					"\nCurrent Highscore: " + currentHighscore + 
 					"\nPress Space to Restart - Press Escape to Quit";
-				GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.white;
+				//GameObject.FindGameObjectWithTag ("end").GetComponent<Text> ().color = Color.white;
 			}
 			//SceneManager.LoadScene ("Menu");
         }
