@@ -53,6 +53,8 @@ public class live : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("Player").SetActive (false);
 			int currentHighscore = PlayerPrefs.GetInt ("highscore", 0);
 			int lastScore = PlayerPrefs.GetInt ("lastscore", 0);
+			GameObject.FindGameObjectWithTag ("Score").SetActive (false);
+			hp = 0;
 			Debug.Log (currentHighscore + "current high");
 			Debug.Log (lastScore + "last Score");
 			if (lastScore > currentHighscore) {
