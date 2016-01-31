@@ -13,7 +13,7 @@ public class glow : MonoBehaviour {
 	void Start ()
     {
         renderer = GameObject.FindGameObjectWithTag("glow").GetComponent<MeshRenderer>();
-        highscore = PlayerPrefs.GetInt("highscore", 0);
+        highscore = PlayerPrefs.GetInt("highscore", 1200);
     }
 
     void Update ()
