@@ -11,7 +11,7 @@ public class live : MonoBehaviour {
 
 	 IEnumerator noob() {
 		GameObject texture = GameObject.FindGameObjectWithTag ("Error");
-		texture.GetComponent<Image>().color = new Color (0.15625f, 1, 0, 0.5f);
+		texture.GetComponent<Image>().color = new Color (0.15625f, 1, 0, 0.3f);
 		yield return new WaitForSeconds(0.07f);
 		//yield return new WaitForEndOfFrame ();
 		texture.GetComponent<Image>().color = new Color (1, 1, 1, 0);
