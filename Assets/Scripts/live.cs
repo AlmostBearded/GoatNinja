@@ -21,7 +21,7 @@ public class live : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        hp = 50;
+        hp = 10;
         scoreUI = GameObject.FindGameObjectWithTag("hp").GetComponent<Text>();
         scoreUI.text = "HP left: " + hp;
     }
