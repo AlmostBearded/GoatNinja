@@ -21,6 +21,10 @@ public class GameController : MonoBehaviour
       SceneManager.LoadScene("Main");
     }
 
+		if (Input.GetKeyDown("f12")) {
+			PlayerPrefs.SetInt("highscore", 0);
+		}
+
     if (Input.GetKeyDown(KeyCode.S))
     {
             //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().GetComponent<sshake>().shakeIt(1);
