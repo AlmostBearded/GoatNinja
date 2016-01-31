@@ -225,6 +225,30 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 286515463}
+--- !u!1 &338993091 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180226, guid: e77506bc567455843aa786a65b1058a7, type: 2}
+  m_PrefabInternal: {fileID: 1055822900}
+--- !u!23 &338993092 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 2393394, guid: e77506bc567455843aa786a65b1058a7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1055822900}
+--- !u!114 &338993095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338993091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47144a3b23cc9614b8209e8eaabb8015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials: []
+  changeInterval: 0.33
+  renderer: {fileID: 338993092}
+  highscore: 0
 --- !u!1 &518418570
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +688,10 @@ Prefab:
     - target: {fileID: 180226, guid: e77506bc567455843aa786a65b1058a7, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 180226, guid: e77506bc567455843aa786a65b1058a7, type: 2}
+      propertyPath: m_TagString
+      value: glow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e77506bc567455843aa786a65b1058a7, type: 2}

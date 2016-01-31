@@ -13,6 +13,7 @@ TagManager:
   - end
   - GoatThrower
   - Player
+  - glow
   - Error
   layers:
   - Default
